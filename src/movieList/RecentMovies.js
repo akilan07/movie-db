@@ -1,13 +1,13 @@
-import { Grid } from "@mui/material";
+import { CircularProgress, Grid } from "@mui/material";
 import React, { Component } from "react";
-import Movie from "./Movie";
+import Movie from "../common/Movie";
 import Box from "@mui/material/Box";
 import axios from "axios";
 
 export default class RecentMovies extends Component {
   constructor(props) {
     super(props);
-    this.state = { movies: [], page: 0 };
+    this.state = { movies: [], page: 0, loader: false };
   }
 
   componentDidMount() {
@@ -21,7 +21,7 @@ export default class RecentMovies extends Component {
       .then((response) => response.data)
       .then((json) => {
         let movieList = this.state.movies.concat(json.results);
-        this.setState({movies: movieList, page: json.page});
+        this.setState({ movies: movieList, page: json.page });
       });
   };
 
@@ -32,8 +32,9 @@ export default class RecentMovies extends Component {
         e.target.scrollHeight - e.target.scrollTop >= e.target.clientHeight - 1;
       if (bottom) {
         let getPage = this.state.page + 1;
-        this.setState({ page: getPage });
+        this.setState({ page: getPage, loader: true });
         this.getMovieDetails();
+        this.setState({loader: false})
       }
     };
     return (
@@ -49,6 +50,11 @@ export default class RecentMovies extends Component {
             ))}
           </Grid>
         </Box>
+        <div style={{display: this.state.loader ? 'block' : 'none' }} >
+          <center>
+            <CircularProgress />
+          </center>
+        </div>
       </div>
     );
   }
