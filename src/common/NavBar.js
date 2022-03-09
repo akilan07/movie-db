@@ -4,7 +4,7 @@ import React, { Component } from "react";
 
 export default class NavBar extends Component {
   render() {
-    const navbarColor = blue[200];
+    const navbarColor = blue[0];
     return (
       <div className="navbar">
         <Box>
