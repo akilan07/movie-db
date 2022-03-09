@@ -8,13 +8,11 @@ function App() {
   return (
     <>
       <NavBar />
-      <div className="container">
-        <Router>
-          <Routes>
-            <Route path="/" element={<RecentMovies />} />
-          </Routes>
-        </Router>
-      </div>
+      <Router>
+        <Routes>
+          <Route path="/" element={<RecentMovies />} />
+        </Routes>
+      </Router>
       <Footer />
     </>
   );

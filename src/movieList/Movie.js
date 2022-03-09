@@ -30,7 +30,6 @@ export default class Movie extends Component {
             <Typography
               sx={ellipsis}
               variant="body2"
-              over
               color="text.secondary"
             >
               {this.props.movie.overview}
