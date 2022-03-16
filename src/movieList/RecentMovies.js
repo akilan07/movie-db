@@ -50,11 +50,11 @@ export default class RecentMovies extends Component {
             ))}
           </Grid>
         </Box>
-        <div style={{display: this.state.loader ? 'block' : 'none' }} >
+``        <Box sx={{display: this.state.loader ? 'block' : 'none' }} >
           <center>
             <CircularProgress />
           </center>
-        </div>
+        </Box>
       </div>
     );
   }
