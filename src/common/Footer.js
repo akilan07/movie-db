@@ -5,7 +5,7 @@ export default class Footer extends Component {
   render() {
     return (
       <div className="footer">
-        <Typography>&copy; 2022 AkiTech, Inc.</Typography>
+        <Typography>&copy; {new Date().getFullYear()} AkiTech, Inc.</Typography>
       </div>
     );
   }
